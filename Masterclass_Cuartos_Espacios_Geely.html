@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuartos Espacios — La experiencia que el cliente vive empieza antes de entrar al showroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --tinta:        #141210;
+    --tinta-7:      #2e2b28;
+    --tinta-5:      #5c5750;
+    --tinta-3:      #9c9790;
+    --tinta-1:      #d6d2cc;
+    --fondo:        #f5f2ee;
+    --fondo-card:   #ffffff;
+    --linea:        #e2ddd8;
+    --acento:       #d94f2a;
+    --acento-claro: #fdf1ee;
+    --acento-borde: #f5c4b6;
+    --acento-2:     #e8753d;
+    --verde:        #2d7a4f;
+    --verde-suave:  #eef7f2;
+    --display:      'Syne', system-ui, sans-serif;
+    --serif:        'DM Serif Display', Georgia, serif;
+    --sans:         'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--fondo);
+    color: var(--tinta);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ══ PORTADA ══ */
+  .portada {
+    background: var(--tinta);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Patrón de puntos */
+  .portada-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  /* Barra de color superior */
+  .portada-barra {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--acento), var(--acento-2), transparent);
+  }
+
+  /* Círculo decorativo */
+  .portada-circulo {
+    position: absolute;
+    right: -80px; bottom: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+
+  .portada-circulo-2 {
+    position: absolute;
+    right: -40px; bottom: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(217,79,42,0.15);
+    pointer-events: none;
+  }
+
+  .portada-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .portada-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tag-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--acento);
+    flex-shrink: 0;
+  }
+
+  .tag-txt {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .portada-año {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .portada-centro {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 0;
+    max-width: 780px;
+  }
+
+  .portada-numero {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin-bottom: 24px;
+  }
+
+  .portada h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5.5vw, 72px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 28px;
+  }
+
+  .portada h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .portada-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.38);
+    max-width: 500px;
+    line-height: 1.72;
+  }
+
+  .portada-bottom {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .portada-para-label {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .portada-para-nombre {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ══ TESIS ══ */
+  .tesis {
+    background: var(--acento);
+    padding: 64px 56px;
+  }
+
+  .tesis-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .tesis-kicker {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .tesis-texto {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .tesis-texto em {
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ══ CONTENIDO ══ */
+  .contenido {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  /* ══ SECCIONES ══ */
+  .sec {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--linea);
+    opacity: 0;
+    animation: rise 0.6s ease forwards;
+  }
+
+  .sec:nth-child(1) { animation-delay: 0.05s; }
+  .sec:nth-child(2) { animation-delay: 0.15s; }
+  .sec:nth-child(3) { animation-delay: 0.25s; }
+  .sec:nth-child(4) { animation-delay: 0.35s; }
+  .sec:nth-child(5) { animation-delay: 0.45s; }
+  .sec:last-child   { border-bottom: none; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .sec-kicker {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sec-kicker::after {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--acento-borde);
+    border-radius: 1px;
+  }
+
+  .sec h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--tinta);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    max-width: 580px;
+  }
+
+  .sec p {
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--tinta-5);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+
+  .sec p strong { color: var(--tinta); font-weight: 400; }
+  .sec p:last-child { margin-bottom: 0; }
+
+  /* ══ FUERZAS / HITOS ══ */
+  .fuerzas {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .fuerza {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    padding: 24px 0;
+    border-top: 1px solid var(--linea);
+  }
+
+  .fuerza:last-child { border-bottom: 1px solid var(--linea); }
+
+  .fuerza-año {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--tinta-1);
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .fuerza.activa .fuerza-año { color: var(--acento); }
+
+  .fuerza h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tinta);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .fuerza p {
+    font-size: 13.5px;
+    color: var(--tinta-3);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* ══ BRECHA CX ══ */
+  .brecha-cx {
+    margin-top: 40px;
+    background: var(--fondo-card);
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .brecha-header {
+    background: var(--acento-claro);
+    border-bottom: 1px solid var(--acento-borde);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brecha-header-ico {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .brecha-header-ico svg {
+    width: 14px; height: 14px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .brecha-header-txt {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acento);
+  }
+
+  .brecha-filas {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .brecha-fila {
+    display: grid;
+    grid-template-columns: 1fr 32px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--linea);
+    align-items: center;
+  }
+
+  .brecha-fila:last-child { border-bottom: none; }
+
+  .brecha-lado {
+    padding: 18px 24px;
+    font-size: 13.5px;
+    color: var(--tinta-5);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .brecha-fila .brecha-lado:last-child {
+    color: var(--tinta);
+    font-weight: 400;
+    background: rgba(217,79,42,0.03);
+    border-left: 1px solid var(--linea);
+  }
+
+  .brecha-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--tinta-1);
+    background: var(--fondo);
+    border-left: 1px solid var(--linea);
+    border-right: 1px solid var(--linea);
+    height: 100%;
+  }
+
+  .brecha-dim-label {
+    font-family: var(--display);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tinta-1);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ══ TRES MODELOS ══ */
+  .modelos {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .modelo {
+    background: var(--fondo-card);
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    padding: 24px 20px;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modelo:hover {
+    border-color: var(--tinta-1);
+    transform: translateY(-2px);
+  }
+
+  .modelo-num {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--linea);
+    line-height: 1;
+  }
+
+  .modelo h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tinta);
+    line-height: 1.35;
+  }
+
+  .modelo p {
+    font-size: 13px;
+    color: var(--tinta-3);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* ══ CALLOUT GRANDE ══ */
+  .callout {
+    margin: 40px 0;
+    background: var(--tinta);
+    border-radius: 14px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .callout::before {
+    content: '"';
+    position: absolute;
+    top: -20px; right: 20px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 160px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .callout p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(17px, 2.3vw, 24px);
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    margin-bottom: 0;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+  }
+
+  .callout-fuente {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ══ APLICACIONES CONCRETAS ══ */
+  .aplicaciones {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .aplicacion {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--linea);
+    align-items: start;
+  }
+
+  .aplicacion:first-child { padding-top: 0; }
+  .aplicacion:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .aplic-barra {
+    background: var(--linea);
+    border-radius: 2px;
+    align-self: stretch;
+    min-height: 32px;
+    transition: background 0.2s;
+  }
+
+  .aplicacion:hover .aplic-barra { background: var(--acento); }
+
+  .aplic-titulo {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tinta);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .aplic-badge {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--verde);
+    background: var(--verde-suave);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .aplic-desc {
+    font-size: 14px;
+    color: var(--tinta-5);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ══ CASOS ══ */
+  .casos {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .caso {
+    background: var(--fondo-card);
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .caso:hover { border-color: var(--tinta-1); }
+
+  .caso-marca {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tinta);
+  }
+
+  .caso-sector {
+    display: block;
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--acento);
+    letter-spacing: 0.06em;
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .caso p {
+    font-size: 13.5px;
+    color: var(--tinta-5);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* ══ PREGUNTA FINAL ══ */
+  .pregunta {
+    margin-top: 36px;
+    background: var(--acento-claro);
+    border: 1px solid var(--acento-borde);
+    border-radius: 12px;
+    padding: 32px 36px;
+  }
+
+  .pregunta p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(17px, 2.3vw, 24px);
+    color: var(--tinta);
+    line-height: 1.5;
+    margin-bottom: 0;
+    max-width: 100%;
+    font-weight: 400;
+  }
+
+  .pregunta p em { color: var(--acento); }
+
+  /* ══ CIERRE ══ */
+  .cierre {
+    background: var(--fondo-card);
+    border-top: 1px solid var(--linea);
+    padding: 72px 56px 80px;
+  }
+
+  .cierre-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .cierre-kicker {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tinta-1);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .cierre h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--tinta);
+    letter-spacing: -0.01em;
+    max-width: 520px;
+    margin-bottom: 16px;
+  }
+
+  .cierre-txt {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--tinta-5);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 44px;
+  }
+
+  .contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 52px;
+  }
+
+  .c-fila {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .c-ico {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    background: var(--fondo);
+    border: 1px solid var(--linea);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .c-ico svg {
+    width: 15px; height: 15px;
+    stroke: var(--tinta-3);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .c-lbl {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--tinta-1);
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  .c-val {
+    font-size: 15px;
+    color: var(--tinta);
+    font-weight: 400;
+  }
+
+  .c-val a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--linea);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .c-val a:hover { border-color: var(--acento); }
+
+  .firma {
+    padding-top: 32px;
+    border-top: 1px solid var(--linea);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .firma-nombre {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tinta);
+  }
+
+  .firma-rol {
+    font-size: 12px;
+    color: var(--tinta-3);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .pq-badge {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tinta-3);
+    border: 1px solid var(--linea);
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--fondo);
+  }
+
+  /* ══ RESPONSIVE ══ */
+  @media (max-width: 700px) {
+    .portada { padding: 36px 24px; min-height: 90vh; }
+    .tesis { padding: 52px 24px; }
+    .contenido { padding: 0 24px; }
+    .sec { padding: 52px 0; }
+    .modelos { grid-template-columns: 1fr; }
+    .brecha-fila { grid-template-columns: 1fr; }
+    .brecha-sep { display: none; }
+    .brecha-lado:last-child { border-left: none; border-top: 1px solid var(--linea); }
+    .caso { grid-template-columns: 1fr; gap: 8px; }
+    .cierre { padding: 52px 24px 60px; }
+    .callout { padding: 24px 20px; }
+    .callout::before { display: none; }
+    .pregunta { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ PORTADA ══ -->
+<header class="portada">
+  <div class="portada-dots"></div>
+  <div class="portada-barra"></div>
+  <div class="portada-circulo"></div>
+  <div class="portada-circulo-2"></div>
+
+  <div class="portada-top">
+    <div class="portada-tag">
+      <div class="tag-dot"></div>
+      <span class="tag-txt">Apuntes · Masterclass IE University</span>
+    </div>
+    <span class="portada-año">2025 – 2026</span>
+  </div>
+
+  <div class="portada-centro">
+    <p class="portada-numero">Cuartos Espacios</p>
+    <h1>La experiencia<br>que el cliente vive<br><em>empieza antes de<br>entrar al showroom</em></h1>
+    <p class="portada-sub">Por qué las marcas que venden productos de alta tecnología enfrentan su mayor brecha en el punto de contacto humano — y cómo cerrarla.</p>
+  </div>
+
+  <div class="portada-bottom">
+    <div>
+      <span class="portada-para-label">Para</span>
+      <span class="portada-para-nombre">Juan José Paredes · Geely Chile</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:32px;height:1px;background:rgba(255,255,255,0.1);"></div>
+      <span style="font-family:var(--display);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);">Continúa</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ TESIS ══ -->
+<div class="tesis">
+  <div class="tesis-inner">
+    <span class="tesis-kicker">La paradoja del producto inteligente</span>
+    <p class="tesis-texto">
+      Puedes tener el auto más tecnológico del mercado.<br>
+      Pero si la persona que lo vende — o que lo mantiene — <em>no siente que pertenece a algo que vale la pena defender</em>, esa tecnología no llega al cliente.
+    </p>
+  </div>
+</div>
+
+<!-- ══ CONTENIDO ══ -->
+<div class="contenido">
+
+  <!-- SECCIÓN 1 -->
+  <section class="sec">
+    <p class="sec-kicker">01</p>
+    <h2>Las fuerzas que redefinieron qué espera un cliente cuando compra</h2>
+    <p>En la última década, cinco transformaciones cambiaron de forma irreversible lo que las personas valoran en una experiencia de compra — y en un espacio de trabajo. Comprender estas fuerzas es clave para entender por qué el punto de contacto humano se ha convertido en la variable más crítica de cualquier marca que vende innovación.</p>
+
+    <div class="fuerzas">
+      <div class="fuerza">
+        <span class="fuerza-año">2008</span>
+        <div>
+          <h4>Airbnb: habitar la narrativa de otro</h4>
+          <p>El espacio dejó de ser un contenedor funcional para convertirse en historia y pertenencia. La experiencia empezó a medirse por lo que el usuario se lleva en emociones, no en especificaciones.</p>
+        </div>
+      </div>
+      <div class="fuerza">
+        <span class="fuerza-año">2010</span>
+        <div>
+          <h4>WeWork: el trabajo como comunidad</h4>
+          <p>El espacio de trabajo dejó de ser un lugar de producción para convertirse en un lugar de cohesión. Las marcas empezaron a diseñar intencionalmente la cultura de sus equipos — no solo sus productos.</p>
+        </div>
+      </div>
+      <div class="fuerza">
+        <span class="fuerza-año">2020</span>
+        <div>
+          <h4>Pandemia: la cohesión sin espacio compartido</h4>
+          <p>Las organizaciones que salieron mejor paradas no fueron las que mejor controlaron la presencia — fueron las que tenían una cultura suficientemente fuerte para sostenerse a distancia.</p>
+        </div>
+      </div>
+      <div class="fuerza activa">
+        <span class="fuerza-año">Hoy</span>
+        <div>
+          <h4>Cinco generaciones, una misma red de concesionarios</h4>
+          <p>Por primera vez, cinco generaciones conviven en los mismos equipos de venta y postventa. Cada una tiene una relación distinta con la tecnología, la autoridad y el propósito. Gestionar esa diversidad en el punto de contacto con el cliente es uno de los desafíos más complejos del retail automotriz actual.</p>
+        </div>
+      </div>
+      <div class="fuerza activa">
+        <span class="fuerza-año">Ahora</span>
+        <div>
+          <h4>El aislamiento como riesgo de servicio</h4>
+          <p>Los equipos que no sienten que pertenecen a algo atienden diferente. El aislamiento no es solo un fenómeno social — es un riesgo de calidad de servicio que ningún manual de atención puede compensar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 -->
+  <section class="sec">
+    <p class="sec-kicker">02</p>
+    <h2>La brecha entre la promesa del producto y la experiencia en el punto de contacto</h2>
+    <p>Las marcas que venden tecnología de alta gama enfrentan una paradoja: cuanto más sofisticado es el producto, mayor es la exigencia de sofisticación en quien lo explica, lo vende y lo mantiene. Y esa sofisticación no viene de un manual de atención — viene de un equipo que entiende y cree en lo que representa.</p>
+
+    <div class="brecha-cx">
+      <div class="brecha-header">
+        <div class="brecha-header-ico">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <span class="brecha-header-txt">La brecha CX que ningún producto resuelve</span>
+      </div>
+      <div class="brecha-filas">
+        <div class="brecha-fila">
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La promesa</span>
+            Tecnología de punta, conducción inteligente, electrificación premium
+          </div>
+          <div class="brecha-sep">→</div>
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La experiencia real</span>
+            El asesor que no sabe explicar el sistema de carga, o que atiende con el mismo guión que usaba para autos de combustión
+          </div>
+        </div>
+        <div class="brecha-fila">
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La promesa</span>
+            Red nacional con estándar unificado de servicio
+          </div>
+          <div class="brecha-sep">→</div>
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La experiencia real</span>
+            12 concesionarios, 12 culturas de atención distintas, ningún hilo conductor de pertenencia a la marca
+          </div>
+        </div>
+        <div class="brecha-fila">
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La promesa</span>
+            Integración global "One Geely" — una marca, una visión
+          </div>
+          <div class="brecha-sep">→</div>
+          <div class="brecha-lado">
+            <span class="brecha-dim-label">La experiencia real</span>
+            El equipo local que escucha "One Geely" pero no sabe qué significa para su trabajo del día a día en Chile
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 -->
+  <section class="sec">
+    <p class="sec-kicker">03</p>
+    <h2>De la Economía de la Experiencia a la Economía de la Pertenencia</h2>
+    <p>La masterclass plantea una distinción que cambia el diseño de todo: no es lo mismo crear una experiencia memorable que construir pertenencia. Y en el mundo del retail y los servicios, esa diferencia se siente directamente en el NPS, en la retención de clientes y en la recompra.</p>
+
+    <div class="modelos">
+      <div class="modelo">
+        <div class="modelo-num">01</div>
+        <h4>Economía de la Experiencia</h4>
+        <p>El foco está en el asombro puntual. Se diseña para que el cliente salga impresionado. Funciona una vez — pero no construye vínculo ni recurrencia.</p>
+      </div>
+      <div class="modelo">
+        <div class="modelo-num">02</div>
+        <h4>Economía de la Pertenencia</h4>
+        <p>El foco está en el vínculo. El cliente no solo queda satisfecho — siente que eligió bien y que esa elección lo representa. Eso es lo que genera recompra y recomendación.</p>
+      </div>
+      <div class="modelo">
+        <div class="modelo-num">03</div>
+        <h4>La clave que lo hace posible</h4>
+        <p>El colaborador que entrega la experiencia tiene que sentir primero que pertenece. No hay CX de pertenencia sin EX de pertenencia. Son la misma cosa.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>"Sin recurrencia, no hay pertenencia. Un cliente que vivió una buena experiencia puede volver. Un cliente que siente que pertenece a algo, vuelve y trae a otros."
+        <span class="callout-fuente">Cristina · Masterclass IE University</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 -->
+  <section class="sec">
+    <p class="sec-kicker">04</p>
+    <h2>Qué es un Cuarto Espacio — y cómo se construye en una red de concesionarios</h2>
+    <p>El sociólogo Ray Oldenburg describió los <strong>Terceros Espacios</strong> como los lugares donde ocurre la socialización genuina — el café de barrio, la plaza, la peluquería. No el hogar ni el trabajo. El espacio neutral donde la comunidad se construye.</p>
+    <p>Los <strong>Cuartos Espacios</strong> van más lejos: son entornos diseñados para que las personas se sientan parte de algo — no solo clientes o empleados. En el mundo automotriz, eso tiene aplicaciones muy concretas.</p>
+
+    <div class="aplicaciones">
+      <div class="aplicacion">
+        <div class="aplic-barra"></div>
+        <div>
+          <p class="aplic-titulo">El showroom como espacio de comunidad <span class="aplic-badge">CX</span></p>
+          <p class="aplic-desc">No un lugar donde se muestran autos — un espacio donde el cliente entra a entender un estilo de vida. Donde el asesor no vende características, sino que comparte convicción. Eso requiere que el equipo primero haya experimentado esa convicción internamente.</p>
+        </div>
+      </div>
+      <div class="aplicacion">
+        <div class="aplic-barra"></div>
+        <div>
+          <p class="aplic-titulo">La postventa como rito de pertenencia <span class="aplic-badge">EX + CX</span></p>
+          <p class="aplic-desc">El cliente que trae su auto a servicio técnico no quiere solo eficiencia — quiere confirmar que eligió bien. El técnico que lo atiende es el guardián de esa confirmación. Su nivel de orgullo por lo que hace es directamente proporcional a la calidad de ese momento.</p>
+        </div>
+      </div>
+      <div class="aplicacion">
+        <div class="aplic-barra"></div>
+        <div>
+          <p class="aplic-titulo">La identidad de marca como hilo conductor <span class="aplic-badge">Coherencia</span></p>
+          <p class="aplic-desc">Doce concesionarios en doce ciudades distintas pueden tener procesos idénticos — y aun así generar experiencias completamente diferentes. Lo que los unifica no es el manual de atención, sino el sentido de pertenencia a algo que los trasciende. Eso se diseña y se cultiva; no ocurre solo.</p>
+        </div>
+      </div>
+      <div class="aplicacion">
+        <div class="aplic-barra"></div>
+        <div>
+          <p class="aplic-titulo">La tecnología como experiencia compartida <span class="aplic-badge">Tech + EX</span></p>
+          <p class="aplic-desc">Cuando un equipo de ventas entiende y disfruta genuinamente la tecnología que vende — cuando la ha experimentado, la ha discutido, la ha hecho propia — eso se transmite al cliente sin necesidad de un guión. El entusiasmo auténtico no se puede simular, pero sí se puede cultivar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 -->
+  <section class="sec">
+    <p class="sec-kicker">05</p>
+    <h2>Lo que otras industrias ya están ejecutando</h2>
+    <p>El principio de los Cuartos Espacios no es exclusivo del retail automotriz. Las industrias que mejor lo están aplicando comparten un patrón: convirtieron el punto de contacto en un lugar donde las personas quieren estar — no solo donde van a comprar o a trabajar.</p>
+
+    <div class="casos">
+      <div class="caso">
+        <div>
+          <div class="caso-marca">Santander Work Café</div>
+          <span class="caso-sector">Banca · Chile</span>
+        </div>
+        <p>Transformó sus sucursales en espacios de trabajo compartidos para la comunidad. El resultado fue doble: más tráfico de clientes y equipos con mayor sentido de propósito. Un banco que dejó de ser un lugar de transacciones para convertirse en un lugar de pertenencia.</p>
+      </div>
+      <div class="caso">
+        <div>
+          <div class="caso-marca">Ace Hotel</div>
+          <span class="caso-sector">Hospitalidad · Global</span>
+        </div>
+        <p>Integró artistas residentes en sus habitaciones. Los huéspedes no se alojaban — cohabitaban con algo vivo. El equipo del hotel dejó de ser personal de servicio para convertirse en curadores de una experiencia cultural activa.</p>
+      </div>
+      <div class="caso">
+        <div>
+          <div class="caso-marca">Apple Store</div>
+          <span class="caso-sector">Tech Retail · Global</span>
+        </div>
+        <p>El caso de referencia del retail tecnológico: el "Genius Bar" como espacio de comunidad, los "Today at Apple" como ritual de pertenencia. Los empleados no venden — facilitan descubrimiento. Y esa diferencia se traduce en NPS de los más altos del retail mundial.</p>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <p>La pregunta que el framework deja abierta para cada organización: <em>¿Estamos construyendo espacios donde las personas quieren estar — o espacios donde simplemente cumplen?</em> La respuesta se siente en cada interacción con el cliente.</p>
+    </div>
+  </section>
+
+</div><!-- fin contenido -->
+
+<!-- ══ CIERRE ══ -->
+<footer class="cierre">
+  <div class="cierre-inner">
+    <span class="cierre-kicker">Sobre estos apuntes</span>
+    <h2>Si esto resonó, me encantaría escucharlo</h2>
+    <p class="cierre-txt">Este es un resumen de los conceptos centrales de la masterclass — sin agenda. Si algo conectó con lo que estás pensando para Geely Chile, estoy disponible para conversarlo sin formalidades.</p>
+
+    <div class="contacto">
+      <div class="c-fila">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <span class="c-lbl">Teléfono</span>
+          <span class="c-val"><a href="tel:+56992827933">+56 9 9282 7933</a></span>
+        </div>
+      </div>
+      <div class="c-fila">
+        <div class="c-ico">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <span class="c-lbl">Correo</span>
+          <span class="c-val"><a href="mailto:ignacio.gomuz@gmail.com">ignacio.gomuz@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="firma">
+      <div>
+        <p class="firma-nombre">Ignacio Gómez</p>
+        <p class="firma-rol">Business Partner — Proqualitas</p>
+      </div>
+      <span class="pq-badge">Proqualitas · +30 años</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
